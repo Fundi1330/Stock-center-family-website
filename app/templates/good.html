@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="good">
+        <img src="{{ url_for('static', filename='images/goods/') }}{{ good.image_name }}.png" alt="{{ good.name }}" height="450">
+        <div class="good__data">
+            <h2>{{ good.name }}</h2>
+            <h2>{{ good.price }} ₴</h2>
+            <p>{{ good.descreption}} </p>
+            <p>Розмір: <b>{{ good.size }}</b></p>
+            <p>Матеріал: {{ good.matherial }}</p>
+            <p>Кількість: {{ good.quantity }}</p>
+            <p>В наявності: {{ good.in_stock }}</p>
+            <form action="" method="post">
+                <input type="submit" value="Додати в кошик" name="add">
+            </form>
+        </div>
+        
+    </div>
+
+{% endblock %}

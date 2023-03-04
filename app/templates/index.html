@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<main class="main">
+    <section class="heading">
+        <h1>Магазин якісного одягу для всієї сім'ї</h1>
+        <span style="font-size: 2.75rem;">Stock Center Family</span>
+    </section>
+    <hr>
+    <section class="pluses">
+        <h1>Наші плюси</h1>
+        <figure class="pluses__item">
+            <img class="image" src="{{ url_for('static', filename='images/box-car.svg') }}" alt="fast delivery" width="100">
+            <figcaption>Швидка доставка по всій Україні</figcaption>
+        </figure>
+        <figure class="pluses__item">
+            <img class="image" src="{{ url_for('static', filename='images/badge.svg') }}" alt="best quality" width="100">
+            <figcaption>Найкраща якість</figcaption>
+        </figure>
+        <figure class="pluses__item">
+            <img class="image" src="{{ url_for('static', filename='images/discounts.svg') }}" alt="discounts" width="100">
+            <figcaption>Скидки та акції</figcaption>
+        </figure>
+        <figure class="pluses__item">
+            <img class="image" src="{{ url_for('static', filename='images/credit-card.svg') }}" alt="convenient payment methods" width="100">
+            <figcaption>Легка та зручна оплата</figcaption>
+        </figure>
+    </section>
+    <hr>
+    <section class="goods">
+        <h1>Категорії товарів</h1>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/clothes.svg') }}" alt="man clothes" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/female-leggins.svg') }}" alt="female leggins" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/female-shirt.svg') }}" alt="female shirts" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/woman-outwear.svg') }}" alt="woman outwear" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/women-pants.svg') }}" alt="woman pants" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/women-underwear.svg') }}" alt="women underwear" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/kid-socks.svg') }}" alt="man clothes" width="100"></div>
+                <div class="swiper-slide"><img src="{{ url_for('static', filename='images/swiper/gloves.svg') }}" alt="man clothes" width="100"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+</main>
+<hr>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
