@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <main class="main">
     <section class="heading">
-        <h1>Магазин якісного одягу для всієї сім'ї</h1>
-        <span style="font-size: 2.75rem;">Stock Center Family</span>
+        <p>Магазин якісного одягу для всієї сім'ї</p>
+        <span>Stock Center Family</span>
     </section>
     <hr>
     <section class="pluses">
@@ -20,15 +20,14 @@
         </figure>
         <figure class="pluses__item">
             <img class="image" src="{{ url_for('static', filename='images/discounts.svg') }}" alt="discounts" width="100">
-            <figcaption>Скидки та акції</figcaption>
+            <figcaption>Знижки та акції</figcaption>
         </figure>
         <figure class="pluses__item">
             <img class="image" src="{{ url_for('static', filename='images/credit-card.svg') }}" alt="convenient payment methods" width="100">
             <figcaption>Легка та зручна оплата</figcaption>
         </figure>
     </section>
-    <hr>
-    <section class="goods">
+    <!-- <section class="goods">
         <h1>Категорії товарів</h1>
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -45,9 +44,9 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
         </div>
-    </section>
+    </section> -->
 </main>
 <hr>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
 {% endblock %}

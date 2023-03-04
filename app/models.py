@@ -32,6 +32,7 @@ class Goods(db.Model):
     quantity = db.Column(db.Integer)
     in_stock = db.Column(db.String, default=True)
     image_name = db.Column(db.String)
+    datetime = db.Column(db)
     
     def __repr__(self) -> str:
         return f'name: {self.name}, price: {self.price}'

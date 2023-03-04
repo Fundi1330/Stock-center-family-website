@@ -12,7 +12,9 @@ app.config["SECRET_KEY"] = '1234'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+
 app.app_context().push()
+
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -79,13 +81,11 @@ def cart(username):
     return render_template('cart.html', user=user)
 
 @app.route('/good/<goodname>', methods=['GET', 'POST'])
-@login_required
 def good(goodname):
     good = Goods.query.filter_by(name=goodname).first()
     return render_template('good.html', good=good)
 
 @app.route('/goods')
-@login_required
 def goods():
     good_list = Goods.query.all()
     return render_template('goods.html', title='Каталог', good_list=good_list)

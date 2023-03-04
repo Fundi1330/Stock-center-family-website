@@ -7,28 +7,28 @@ from flask import flash
 
 """Форми на сайті"""
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    remember_me = BooleanField('Remember ME')
-    submit = SubmitField('Sign In')
+    username = StringField('Псевдонім', validators=[DataRequired()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    remember_me = BooleanField("Запам'ятати мене")
+    submit = SubmitField('Ввійти')
 
 
 class RegestrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign In')
+    username = StringField("Псевдонім", validators=[DataRequired()])
+    email = StringField('Електронна адрессу', validators=[DataRequired(), Email()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    confirm_password = PasswordField('Підтвердити пароль', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Зареєструватися')
     
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
-            flash('Use a different username')
+            flash("Використовуйте інший Псевдонім")
 
     def validate_username(self, email):
         email = User.query.filter_by(email=email.data).first()
         if email is not None:
-            flash('Use a different email')
+            flash('Використовуйте іншиу електронну адрессу')
 
 
 class AddGoodForm(FlaskForm):

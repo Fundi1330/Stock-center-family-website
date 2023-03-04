@@ -9,6 +9,12 @@
     {% else %}
     <title>Stock Center Family</title>
     {% endif %}
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/icons/apple-touch-icon.png')  }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/icons/favicon-32x32.png')  }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/icons/favicon-16x16.png')  }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/icons/site.webmanifest')  }}">
     
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
@@ -17,9 +23,9 @@
 <body>
     <div class="wrapper">
         <header class="header">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo" class="logo">
+            <span class="title">Stock Center Family</span>
             <nav class="menu">
-                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo" width="75" class="logo">
-                <span class="title">Stock Center Family</span>
                 <ul class="menu__main">
                     <li class="menu__link"><a href="/">Головна</a></li>
                     <li class="menu__link"><a href="/goods">Товари</a></li>
@@ -32,26 +38,51 @@
                     {% endif %}
                 </ul>
             </nav>
+            <nav class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                  <span></span>
+                </label>
+                <ul class="menu__box">
+                    <li class="menu__box__item"><a href="/">Головна</a></li>
+                    <li class="menu__box__item"><a href="/goods">Товари</a></li>
+                    <li class="menu__box__item"><a href="#">Новники</a></li>
+                    <li class="menu__box__item"><a href="#">Про нас</a></li>
+                    {% if aunteficated %}
+                    <li class="menu__box__item"><a href="/login">Вхід</a></li>
+                    {% else %}
+                    <li class="menu__box__item"><a href="{{ url_for('cart', username=current_user.username) }}">Кошик</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
         </header>
         {% block content %} {% endblock %}
         <footer class="footer">
             <p>Наші соціальні мережі</p>
-            <figure class="footer__item">
-                <img src="{{ url_for('static', filename='images/footer/facebook.svg') }}" alt="facebook" height="60">
-                <figcaption>Фейсбук</figcaption>
-            </figure>
-            <figure class="footer__item">
-                <img src="{{ url_for('static', filename='images/footer/telegram.svg') }}" alt="telegram" height="60">
-                <figcaption>Телеграм</figcaption>
-            </figure>
-            <figure class="footer__item">
-                <img src="{{ url_for('static', filename='images/footer/viber.svg') }}" alt="viber" height="60">
-                <figcaption>Вайбер</figcaption>
-            </figure>
-            <figure class="footer__item">
-                <img src="{{ url_for('static', filename='images/footer/instagram.svg') }}" alt="instagram" height="60">
-                <figcaption>Інстаграм</figcaption>
-            </figure>
+            <a href="" style="color: black;">
+                <figure class="footer__item">
+                    <img src="{{ url_for('static', filename='images/footer/facebook.svg') }}" alt="facebook" height="60">
+                    <figcaption>Фейсбук</figcaption>
+                </figure>
+            </a>
+            <a href="https://t.me/StockCF" style="color: black;">
+                <figure class="footer__item">
+                    <img src="{{ url_for('static', filename='images/footer/telegram.svg') }}" alt="telegram" height="60">
+                    <figcaption>Телеграм</figcaption>
+                </figure>
+            </a>
+            <a href="" style="color: black;">
+                <figure class="footer__item">
+                    <img src="{{ url_for('static', filename='images/footer/viber.svg') }}" alt="viber" height="60">
+                    <figcaption>Вайбер</figcaption>
+                </figure>
+            </a>
+            <a href=""  style="color: black;">
+                <figure class="footer__item">
+                    <img src="{{ url_for('static', filename='images/footer/instagram.svg') }}" alt="instagram" height="60">
+                    <figcaption>Інстаграм</figcaption>
+                </figure>
+            </a>
         </footer>
     </div>
     

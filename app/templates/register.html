@@ -1,38 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="" method="post" novalidate class="form">
+  <div class="form">
+    <form action="" method="post" novalidate >
+      <h2 class="form__item">Реєстрація</h2>
       {{ form.hidden_tag() }}
-      <p>
+      <p class="form__item">
         {{ form.username.label }}<br>
-        {{ form.username(size=32, class_='form__input') }} <br>
+        {{ form.username(class_='form__input') }} <br>
           {% for error in form.username.errors %}
             <span style="color: red;">[{{error}}]</span>
           {% endfor %}
       </p>
-        <p>
+        <p class="form__item">
         {{ form.email.label }}<br>
-        {{ form.email(size=32, class_='form__input') }} <br>
+        {{ form.email( class_='form__input') }} <br>
           {% for error in form.email.errors %}
-        <span style="color: red;">[{{error}}]</span>
+            <span style="color: red;">[{{error}}]</span>
           {% endfor %}
       </p>
-        <p>
+        <p class="form__item">
             {{ form.password.label }}<br>
-            {{ form.password(size=32, class_='form__input') }}
+            {{ form.password( class_='form__input') }}<br>
             {% for error in form.password.errors %}
-            <span style="color: red;">[{{error}}]</span>
+              <span style="color: red;">[{{error}}]</span>
             {% endfor %}
         </p>
-        <p>
+        <p class="form__item">
             {{ form.confirm_password.label }}<br>
-            {{ form.confirm_password(size=32, class_='form__input') }}
+            {{ form.confirm_password( class_='form__input') }}<br>
             {% for error in form.confirm_password.errors %}
-            <span style="color: red;">[{{error}}]</span>
+              <span style="color: red;">[{{error}}]</span>
             {% endfor %}
         </p>
 
-        <p>{{ form.submit() }}</p>
+        <p class="form__item">{{ form.submit(class_='submit') }}</p>
     </form>
+  </div>
 {% endblock %}

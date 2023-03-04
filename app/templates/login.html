@@ -1,25 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Sign In</h1>
+  <div class="form">
     <form action="" method="post" novalidate>
+      <h2 class="form__item">Вхід</h2>
       {{ form.hidden_tag() }}
-      <p>
+      <p class="form__item">
         {{ form.username.label }}<br>
-        {{ form.username(size=32) }} <br>
+        {{ form.username(class_='form__input') }} <br>
           {% for error in form.username.errors %}
-        <span style="color: red;">[{{error}}]</span>
+            <span style="color: red;">[{{error}}]</span>
           {% endfor %}
       </p>
-        <p>
+        <p class="form__item">
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
+            {{ form.password(class_='form__input') }}<br>
             {% for error in form.password.errors %}
-            <span style="color: red;">[{{error}}]</span>
+              <span style="color: red;">[{{error}}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+        <p class="form__item">{{ form.remember_me() }} 
+          {{ form.remember_me.label }}</p>
+        <p class="form__item">{{ form.submit(class_='submit') }}</p>
+        <a href="/register" class="register">Ще не зареєстровані? То зробіть це!</a>
     </form>
-    <a href="/register">New User? Register</a>
+    
+  </div>
+    
 {% endblock %}
