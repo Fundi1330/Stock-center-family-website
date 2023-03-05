@@ -8,8 +8,27 @@
         <span>Stock Center Family</span>
     </section>
     <hr>
+    <section class="latest__goods">
+        <ul class="goods__list">
+            <h1>Новинки</h1>
+            {% for good in latest_good_list %}
+                <li class="good__list__item">
+                    <a class="product" href="{{ url_for('good', goodname=good.name) }}">
+                        <img src="{{ url_for('static', filename='images/goods/') }}{{ good.image_name }}.png" alt="{{ good.name }}">
+                        <h3>
+                            {{ good.name }}
+                        </h3>
+                        <h2>
+                            {{ good.price }} грн.
+                        </h2>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <hr>
     <section class="pluses">
-        <h1>Наші плюси</h1>
+        <h1>Наші переваги</h1>
         <figure class="pluses__item">
             <img class="image" src="{{ url_for('static', filename='images/box-car.svg') }}" alt="fast delivery" width="100">
             <figcaption>Швидка доставка по всій Україні</figcaption>

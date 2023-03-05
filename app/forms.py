@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, SelectField, FileField
 from wtforms.validators import DataRequired, Email, EqualTo
 from app.models import User
 from flask import flash
@@ -32,9 +32,14 @@ class RegestrationForm(FlaskForm):
 
 
 class AddGoodForm(FlaskForm):
-    name = StringField('Good name', validators=[DataRequired()])
-    descreption = StringField('Good descreption', validators=[DataRequired()])
-    price = StringField('Good price', validators=[DataRequired()])
-    size = StringField('Size')
-    matherial = StringField('Matherial')
+    name = StringField('Назва', validators=[DataRequired()])
+    descreption = StringField('Опис', validators=[DataRequired()])
+    price = StringField('Ціна', validators=[DataRequired()])
+    size = StringField('Розмір', validators=[DataRequired()])
+    matherial = StringField('Матеріал', validators=[DataRequired()])
+    type = SelectField('Тип одягу', validators=[DataRequired()], choices=[('Жіночий', 'Жіночий'), ('Чоловічий', 'Чоловічий'), ('Дівчачий', 'Дівчачий'), ('Хлопчачий', 'Хлопчачий')])
+    quantity = IntegerField('Кількість')
+    in_stock = SelectField('В наявності', validators=[DataRequired()], choices=[('Так', 'Так'), ('Ні', 'Ні')])
+    image = FileField('Зображення', validators=[DataRequired()])
+
     submit = SubmitField('Add good')

@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -24,15 +24,15 @@ class Goods(db.Model):
     __tablename__ = 'Goods'
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(45), index = True, unique=True)
-    descreption = db.Column(db.String(420))
-    price = db.Column(db.Float)
-    size = db.Column(db.String(50))
-    matherial = db.Column(db.String(75))
-    type = db.Column(db.String(80))
-    quantity = db.Column(db.Integer)
-    in_stock = db.Column(db.String, default=True)
-    image_name = db.Column(db.String)
-    datetime = db.Column(db)
+    descreption = db.Column(db.String(420), index = True)
+    price = db.Column(db.Integer, index = True)
+    size = db.Column(db.String(50), index = True)
+    matherial = db.Column(db.String(75), index = True)
+    type = db.Column(db.String(80), index = True)
+    quantity = db.Column(db.Integer, index = True)
+    in_stock = db.Column(db.String, default=True, index = True)
+    image_name = db.Column(db.String, index = True)
+    publish_date = db.Column(db.DateTime, default=datetime.now(), index = True)
     
     def __repr__(self) -> str:
         return f'name: {self.name}, price: {self.price}'

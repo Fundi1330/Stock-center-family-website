@@ -36,6 +36,9 @@
                     {% else %}
                     <li class="menu__link"><a href="{{ url_for('cart', username=current_user.username) }}">Кошик</a></li>
                     {% endif %}
+                    {% if current_user.admin %}
+                    <li class="menu__link"><a href="/add_good">Додати товар</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <nav class="hamburger-menu">
@@ -56,6 +59,15 @@
                 </ul>
             </nav>
         </header>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         {% block content %} {% endblock %}
         <footer class="footer">
             <p>Наші соціальні мережі</p>
